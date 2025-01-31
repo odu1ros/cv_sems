@@ -16,3 +16,7 @@ def display_inline(img, grey=False):
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         plt.imshow(img)
     plt.show()
+
+def display_hist(hist):
+    plt.figure(figsize=(10, 6))
+    plt.hist(hist, bins=100)
