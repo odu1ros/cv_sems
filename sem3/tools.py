@@ -130,7 +130,7 @@ def iterative_filter(img:np.ndarray, params:list[dict], function_call:callable) 
 
     :param img: image array
     :param params: list of dictionaries, each containing parameters for one iteration
-    :function call: function that takes for input an image and params (as **kwargs), returning processed image
+    :param function_call: function that takes for input an image and params (as **kwargs), returning processed image
 
     :return: processed images
     """
