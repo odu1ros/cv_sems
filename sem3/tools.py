@@ -104,8 +104,12 @@ def get_noised_image(img:np.ndarray, threshold:float=0.2, sp:bool=False) -> np.n
 
     :return: image with noise applied
     """
-    
-    h, w, c = img.shape
+    try:
+        h, w, c = img.shape
+    except:
+        h, w = img.shape
+        c = 1
+        img = img.reshape((h, w, 1)) ##### hope order is correct
 
     if sp:
         random_values = np.random.rand(h, w)
