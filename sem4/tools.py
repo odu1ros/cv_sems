@@ -147,3 +147,17 @@ def iterative_filter(img:np.ndarray, params:list[dict], function_call:callable) 
         images[i] = cur_img
 
     return images
+
+def channel_operations(img:np.ndarray, function_call:callable, **params:dict):
+    """
+    Applies processing function to separate channels, then merges them back
+
+    :param img: image array
+    :param function_call: function that takes for input an image and params (as **kwargs), 
+                          returning processed image
+
+    :return: processed image
+    """
+
+    b, g, r = cv2.split(img)
+    return cv2.merge([function_call(b, **params), function_call(g, **params), function_call(r, **params)]) 
